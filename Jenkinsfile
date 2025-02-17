@@ -10,17 +10,17 @@ pipeline{
         }
         stage("Code Build"){
             steps{
-            dockerbuild("notes-app","latest","anushkahetawal")
+            docker_build("notes-app","latest","anushkahetawal")
             }
         }
         stage("Push to DockerHub"){
             steps{
-                dockerpush("notes-app","latest","anushkahetawal")
+                docker_push("notes-app","latest","anushkahetawal")
             }
         }
         stage("Deploy"){
             steps{
-                deploy()
+                docker_compose()
             }
         }
         
